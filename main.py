@@ -40,5 +40,5 @@ def third_condition() -> bool:
 
 if __name__ == '__main__':
     a = [3, 5, 16, 21]
-    b = [6, 10, 16, 42]
+    b = [6, 10, 32, 42]
     first_condition(a, b)
