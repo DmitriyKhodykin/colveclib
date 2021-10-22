@@ -11,7 +11,7 @@ def first_condition(vec_a: list, vec_b: list) -> bool:
         factors = []
         for index in range(len(vec_a)):
             try:
-                factor = round(vec_a[index] / vec_b[index], 1)
+                factor = round(vec_a[index] / vec_b[index], 3)
                 factors.append(factor)
             except ZeroDivisionError:
                 factor = 0
@@ -38,5 +38,5 @@ def third_condition() -> bool:
 
 if __name__ == '__main__':
     a = [3, 5, 16, 21]
-    b = [6, 12, 32, 42]
+    b = [-3, -5, -16, -21]
     first_condition(a, b)
