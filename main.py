@@ -10,8 +10,13 @@ def first_condition(vec_a: list, vec_b: list) -> bool:
     if len(vec_a) == len(vec_b):
         factors = []
         for index in range(len(vec_a)):
-            factor = vec_a[index] / vec_b[index]
-            factors.append(factor)
+            try:
+                factor = round(vec_a[index] / vec_b[index], 1)
+                factors.append(factor)
+            except ZeroDivisionError:
+                factor = 0
+                factors.append(factor)
+
         if factors.count(factors[0]) == len(factors):
             print('Vectors are collinear')
             return True
@@ -24,13 +29,6 @@ def first_condition(vec_a: list, vec_b: list) -> bool:
         return False
 
 
-def second_condition() -> bool:
-    """
-    ax/bx == ay/by.
-    """
-    pass
-
-
 def third_condition() -> bool:
     """
     vec(a*b) == vec(0).
@@ -40,5 +38,5 @@ def third_condition() -> bool:
 
 if __name__ == '__main__':
     a = [3, 5, 16, 21]
-    b = [6, 10, 32, 42]
+    b = [6, 12, 32, 42]
     first_condition(a, b)
