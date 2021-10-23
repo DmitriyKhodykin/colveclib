@@ -1,6 +1,22 @@
 """
 Vector collinear analysis library.
 """
+import pandas
+
+
+def main(dataframe: pandas.DataFrame) -> list:
+    columns: pandas.index = dataframe.columns
+    result = []
+    for index_a in columns:
+        for index_b in columns:
+            if index_a != index_b:
+                vector_a = list(dataframe[index_a])
+                vector_b = list(dataframe[index_b])
+                if first_condition(vector_a, vector_b):
+                    result.append(index_a)
+            else:
+                pass
+    return result
 
 
 def first_condition(vec_a: list, vec_b: list) -> bool:
@@ -29,14 +45,6 @@ def first_condition(vec_a: list, vec_b: list) -> bool:
         return False
 
 
-def third_condition() -> bool:
-    """
-    vec(a*b) == vec(0).
-    """
-    pass
-
-
 if __name__ == '__main__':
-    a = [3, 5, 16, 21]
-    b = [-3, -5, -16, -21]
-    first_condition(a, b)
+    a = [3, 5, 16, 10]
+    b = [6, 10, 32, 20]
