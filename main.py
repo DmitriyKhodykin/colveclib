@@ -17,7 +17,7 @@ class ColVec:
     def __init__(self, dataframe):
         self.dataframe = dataframe
 
-    def main(self) -> pandas.DataFrame:
+    def drop_collinear_vectors(self) -> pandas.DataFrame:
         """
         Remove collinear vectors and return non-collinear features.
         :return: outgoing dataframe
