@@ -7,13 +7,6 @@ import pandas
 
 class ColVec:
 
-    toy_set = pandas.DataFrame({
-        'Year': [2016, 2017, 2018, 2019, 2020],
-        'HarvestArea': [2000, 2000, 2000, 2000, 2000],
-        'Harvest': [1000, 1000, 1100, 1200, 1200],
-        'Yield': [50, 50, 55, 60, 60]
-    })
-
     def __init__(self, dataframe):
         self.dataframe = dataframe
 
@@ -62,7 +55,7 @@ class ColVec:
             factors = []
             for index in range(len(vec_a)):
                 try:
-                    factor = round(vec_a[index] / vec_b[index], 2)
+                    factor = round(vec_a[index] / vec_b[index], 4)
                     factors.append(factor)
                 except ZeroDivisionError:
                     factor = 0
@@ -79,4 +72,12 @@ class ColVec:
 
 
 if __name__ == '__main__':
-    pass
+    toy_set = pandas.DataFrame({
+        'Year': [2016, 2017, 2018, 2019, 2020],
+        'HarvestArea': [2000, 2000, 2000, 2000, 2000],
+        'Harvest': [1000, 1000, 1100, 1200, 1200],
+        'Yield': [50, 50, 55, 60, 60]
+    })
+
+    col_vec = ColVec(toy_set)
+    non_col_vec_dataframe = col_vec.drop_collinear_vectors()
