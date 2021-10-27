@@ -13,3 +13,16 @@ toy_set = pandas.DataFrame({
 col_vec = ColVec(toy_set)
 non_col_vec_dataframe = col_vec.drop_collinear_vectors()
 ```
+
+Output:
+```
+Collinear vectors are: ['Harvest', 'Yield']
+(Matrix) Rank: 3
+
+Year  HarvestArea  Harvest
+0  2016         2000     1000
+1  2017         2000     1000
+2  2018         2000     1100
+3  2019         2000     1200
+4  2020         2000     1200
+```
